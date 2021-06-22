@@ -1,0 +1,21 @@
+.home__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home__background {
+  background: url('/background.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 700px) {
+  .home__container {
+    display: flex;
+  }
+
+  .home__background {
+    background: none;
+  }
+}
