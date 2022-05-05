@@ -1,26 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const Skeleton = () => {
   return (
-    <div className="skeleton__wrapper">
-      {[1, 2, 3].map((ele) => (
-        <div className="skeleton__container" key={ele}>
-          <div className="skeleton__title"></div>
-          <div className="skeleton__container_1">
-            <div className="skeleton__title_1"></div>
-            <div className="skeleton__value_1"></div>
+    <div class="border shadow rounded-md p-4 max-w-xl w-full mx-auto">
+      <div class="animate-pulse flex space-x-4">
+        <div class="rounded-full bg-slate-500 h-10 w-10"></div>
+        <div class="flex-1 space-y-6 py-1">
+          <div class="h-2 bg-slate-500 rounded"></div>
+          <div class="space-y-3">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="h-2 bg-slate-500 rounded col-span-2"></div>
+              <div class="h-2 bg-slate-500 rounded col-span-1"></div>
+            </div>
+            <div class="h-2 bg-slate-500 rounded"></div>
           </div>
-          <div className="skeleton__container_1">
-            <div className="skeleton__title_2"></div>
-            <div className="skeleton__value_2"></div>
-          </div>
-          <div className="skeleton__container_1">
-            <div className="skeleton__title_3"></div>
-            <div className="skeleton__value_3"></div>
-          </div>
-          <div className="shrimmer"></div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

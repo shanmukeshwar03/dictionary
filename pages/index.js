@@ -1,22 +1,11 @@
-import Form from 'components/Form';
-import Head from 'next/head';
+import Form from "components/Form";
+import Result from "components/Result";
 
 const Home = () => {
   return (
-    <div className="home__container">
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="description" content="online dictionary" />
-        <meta name="keywords" content="dictionary meanings words" />
-        <meta name="robots" content="index, follow" />
-        <meta name="language" content="EN" />
-        <title>dictionary</title>
-      </Head>
+    <div className="flex flex-col gap-4 w-full max-w-2xl md:w-1/2 mx-4">
       <Form />
-      <div className="home__background"></div>
+      <Result />
     </div>
   );
 };

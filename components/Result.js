@@ -1,65 +1,76 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Skeleton from 'components/Skeleton';
+import React from "react";
+import { useSelector } from "react-redux";
+import Skeleton from "components/Skeleton";
+
+const Defination = ({ title, meaning }) => {
+  return (
+    <div className="flex flex-col my-4">
+      <span className="text-gray-800 text-lg font-medium">{title}</span>
+      <span className="text-gray-700">{meaning}</span>
+    </div>
+  );
+};
 
 const Result = () => {
   const state = useSelector((state) => state);
 
   if (state.loading) {
-    return <Skeleton />;
+    return (
+      <div className="flex flex-col w-full gap-4">
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </div>
+    );
   }
 
   if (state.notfound) {
-    return <span className="result__init">No results found</span>;
+    return (
+      <span className="text-red-500 text-lg font-medium text-center">
+        No results found
+      </span>
+    );
   }
 
   if (!state.result.length) {
-    return <span className="result__init">Start searching for meanings</span>;
+    return (
+      <span className="text-gray-500 text-lg font-medium text-center">
+        Start searching for meanings
+      </span>
+    );
   }
 
   return (
-    <div className="result__wrapper">
-      {state.result.map((res , key) => (
-        <div key={key} className="result__container">
-          <div className="container">
-            <span className="container__title">{res.word}</span>
-            <div className="phonetics__container">
+    <div className="flex flex-col">
+      {state.result.map((res, key) => (
+        <div key={key} className="flex shadow-lg m-2 p-6 rounded-lg w-full ">
+          <div className="flex flex-col w-full">
+            <span className="text-gray-800 text-2xl capitalize font-bold">
+              {res.word}
+            </span>
+            <div className="flex flex-col gap-2">
               <span>Phonetics</span>
-              <div>
-                {res.phonetics.map((ph , key) => (
+              <div className="flex flex-col gap-2">
+                {res.phonetics.map((ph, key) => (
                   <audio key={key} controls>
                     <source src={ph.audio} />
                   </audio>
                 ))}
               </div>
             </div>
-            {res.meanings.map((mn , key) => (
-              <div key={key} className="result__meanings">
-                <div className="container">
-                  <span className="result__title">Parts of speech</span>
-                  <span className="result__meaning">{mn.partOfSpeech}</span>
-                </div>
-                {mn.definitions.map((df , key) => (
-                  <div key={key} className="result__definations">
-                    <div className="container">
-                      <span className="border__min"></span>
-                      <span className="result__title">Definition</span>
-                      <span className="result__meaning">{df.definition}</span>
-                    </div>
-                    <div className="container">
-                      <span className="result__title">Example</span>
-                      <span className="result__meaning">{df.example}</span>
-                    </div>
-                    {df.synonyms && (
-                      <div className="container">
-                        <span className="result__title">Synonyms</span>
-                        <div className="result__synonyms__map">
-                          {df.synonyms.map((syn , key) => (
-                            <span key={key}>{syn}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+            {res.meanings.map((mn, key) => (
+              <div key={key} className="flex flex-col w-full">
+                <Defination title="Parts of speech" meaning={mn.partOfSpeech} />
+                {mn.definitions.map((df, key) => (
+                  <div key={key} className="flex flex-col">
+                    <div className="w-11/12 h-0.5 bg-gray-300 mx-auto"></div>
+                    <Defination title="Definition" meaning={df.definition} />
+                    <Defination
+                      title="Example"
+                      meaning={df.example ? df.example : "None"}
+                    />
                   </div>
                 ))}
               </div>

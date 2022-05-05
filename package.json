@@ -17,14 +17,16 @@
   "author": "shanmukeshwar",
   "license": "ISC",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.7.0",
-    "axios": "^0.24.0",
-    "next": "^12.0.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6"
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.27.2",
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1"
   },
   "devDependencies": {
-    "npm-check-updates": "^12.0.3"
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.13",
+    "tailwindcss": "^3.0.24"
   }
 }

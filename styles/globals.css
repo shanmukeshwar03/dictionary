@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 * {
@@ -8,18 +12,4 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  letter-spacing: 1px;
-  height: 100vh;
-  width: 100vw;
-}
-
-input {
-  outline: none;
-  letter-spacing: 1px;
-}
-
-button {
-  outline: none;
-  border: none;
-  background-color: transparent;
 }
